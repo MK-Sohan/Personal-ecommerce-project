@@ -6,6 +6,9 @@ const ShopeCatagory = () => {
   const handleWomen = () => {
     navigate("/women");
   };
+  const handleMan = () => {
+    navigate("/man");
+  };
 
   return (
     <div className="pb-16 ">
@@ -62,11 +65,14 @@ const ShopeCatagory = () => {
               <div className="relative group justify-center items-center h-full w-full hidden lg:flex">
                 <img
                   className="object-center object-cover h-full w-full"
-                  src="https://i.ibb.co/PTtRBLL/olive-tatiane-Im-Ez-F9-B91-Mk-unsplash-1.png"
+                  src="https://i.ibb.co/P9VXNqT/lee-chinyama-YJN7e-CPi-CPc-unsplash.jpg"
                   alt="girl-image"
                 />
-                <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-white py-3 w-36 bg-gray-700">
-                  Women
+                <button
+                  onClick={handleMan}
+                  className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-white py-3 w-36 bg-gray-700"
+                >
+                  Mans
                 </button>
                 <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-white bg-opacity-50" />
               </div>

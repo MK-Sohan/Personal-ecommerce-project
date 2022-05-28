@@ -10,6 +10,8 @@ import Register from "./Components/Authentication/Register";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Products from "./Components/Products/Products";
 import WomensCollection from "./Components/ParentHome/ShopebyCatagory/WomensCollection";
+import Blogs from "./Components/Blogs/Blogs";
+import MansCollection from "./Components/ParentHome/ShopebyCatagory/MansCollection";
 
 function App() {
   return (
@@ -21,7 +23,9 @@ function App() {
           path="/women"
           element={<WomensCollection></WomensCollection>}
         ></Route>
+        <Route path="/man" element={<MansCollection></MansCollection>}></Route>
         <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
+        <Route path="/blog" element={<Blogs></Blogs>}></Route>
         <Route path="/products" element={<Products></Products>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>

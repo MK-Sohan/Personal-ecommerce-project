@@ -1,16 +1,14 @@
-import React, { useState } from "react";
-import SingleWomenCollection from "./SingleWomenCollection";
+import React, { useEffect, useState } from "react";
+import SingleMansCollection from "./SingleMansCollection";
 
-const WomensCollection = () => {
-  const [womanscollection, setWomanscollection] = useState([]);
-  useState(() => {
-    fetch("http://localhost:5000/womans")
+const MansCollection = () => {
+  const [mensCollection, setMensCollection] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/mans")
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setWomanscollection(data);
-      });
+      .then((data) => setMensCollection(data));
   }, []);
+
   return (
     <div className="">
       <div className=" 2xl:container 2xl:mx-auto ">
@@ -24,11 +22,11 @@ const WomensCollection = () => {
 
           <div className=" flex justify-between items-center"></div>
           <div className=" grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-y-12 lg:gap-x-8 sm:gap-y-10 sm:gap-x-6 gap-y-6 lg:mt-12 mt-10">
-            {womanscollection?.map((woman) => (
-              <SingleWomenCollection
-                key={woman._id}
-                woman={woman}
-              ></SingleWomenCollection>
+            {mensCollection?.map((man) => (
+              <SingleMansCollection
+                key={man._id}
+                man={man}
+              ></SingleMansCollection>
             ))}
           </div>
           <div className=" flex justify-center items-center">
@@ -42,4 +40,4 @@ const WomensCollection = () => {
   );
 };
 
-export default WomensCollection;
+export default MansCollection;

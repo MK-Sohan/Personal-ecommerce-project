@@ -8,6 +8,7 @@ import {
   faDashboard,
   faHome,
   faBox,
+  faBlog,
 } from "@fortawesome/free-solid-svg-icons";
 
 import Avatar from "../Avatar/Avatar";
@@ -58,11 +59,19 @@ function StandardNavMenu() {
           <FontAwesomeIcon icon={faBox} className=" mr-2" />
           Products
         </Link>
+        <Link
+          to="/blog"
+          className="no-underline px-2 mr-3 text-gray-700 font-bold
+          text-xl hover:text-white"
+        >
+          <FontAwesomeIcon icon={faBlog} className=" mr-2" />
+          Blogs
+        </Link>
       </div>
       <div className="items-center hidden lg:flex">
         <Button
           onClick={handlelogin}
-          className="btn text-gray-800 bg-transparent bottom-1 border-gray-700 hover:bg-white"
+          className=" text-gray-800  bg-transparent bottom-1 border-gray-700 hover:bg-white hover:text-black"
           text="Login"
           size="sm"
         />{" "}
@@ -123,7 +132,7 @@ function StandardNavMenu() {
             <div className="flex">
               <Button
                 onClick={handlelogin}
-                className="btn text-gray-200 bg-transparent bottom-1 border-gray-200 mt-6 hover:bg-white hover:text-black"
+                className=" text-gray-200 bg-transparent bottom-1 border-gray-200 mt-6 hover:bg-white hover:text-black"
                 text="Login"
                 size="sm"
               />{" "}
@@ -132,7 +141,7 @@ function StandardNavMenu() {
               </span>
               <Button
                 onClick={handleRegister}
-                className="btn text-gray-200 bg-transparent bottom-1 mt-6  border-green-600 hover:bg-green-600 hover:text-white"
+                className=" text-gray-200 bg-transparent bottom-1 mt-6  border-green-600 hover:bg-green-600 hover:text-white"
                 text="Register"
                 size="sm"
               />
