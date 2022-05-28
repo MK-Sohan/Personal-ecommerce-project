@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #10002b;
+}
+
+.loader {
+  height: 300px;
+  width: 300px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: -webkit-box;
+  display: flex;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-perspective: 500px;
+  perspective: 500px;
+  -webkit-transform: rotatex(60deg);
+  transform: rotatex(60deg);
+  border-radius: 500px;
+}
+.loader .circle {
+  --distance: 20px;
+  --animationEase: ease-in-out;
+  position: absolute;
+  top: calc(var(--index) * var(--distance));
+  bottom: calc(var(--index) * var(--distance));
+  left: calc(var(--index) * var(--distance));
+  right: calc(var(--index) * var(--distance));
+  margin: auto;
+  border: 20px solid var(--color);
+  -webkit-animation: animate var(--animationSpeed) var(--animationEase) infinite;
+  animation: animate var(--animationSpeed) var(--animationEase) infinite;
+  -webkit-animation-delay: calc(
+    var(--index) * (var(--animationSpeed) / var(--circlesCount))
+  );
+  animation-delay: calc(
+    var(--index) * (var(--animationSpeed) / var(--circlesCount))
+  );
+  border-radius: 500px;
+  box-shadow: 0px 4px 4px var(--color), 0px 4px 8px var(--color) inset,
+    0px 4px 10px var(--color) inset;
+}
+
+@-webkit-keyframes animate {
+  0%,
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  50% {
+    -webkit-transform: translateZ(calc(var(--index) * var(--distance) * -1));
+    transform: translateZ(calc(var(--index) * var(--distance) * -1));
+  }
+}
+@keyframes animate {
+  0%,
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  50% {
+    -webkit-transform: translateZ(calc(var(--index) * var(--distance) * -1));
+    transform: translateZ(calc(var(--index) * var(--distance) * -1));
+  }
+}
