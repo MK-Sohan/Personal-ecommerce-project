@@ -26,7 +26,7 @@ function StandardNavMenu() {
   };
 
   return (
-    <div className="flex items-center h-20 px-6 justify-between  bg-[#ffc532] text-white relative z-50">
+    <div className="flex items-center sticky top-0 h-20 px-6 justify-between  bg-[#ffc532] text-white  z-50">
       <div className="h-8">
         <img
           src="https://gustui.s3.amazonaws.com/Gust+Logo+White.png"

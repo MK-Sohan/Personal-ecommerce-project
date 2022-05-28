@@ -6,9 +6,9 @@ import ShopeCatagory from "../ShopebyCatagory/ShopeCatagory";
 const Home = () => {
   return (
     <div>
-      <Banner></Banner>
-      <ShopeCatagory></ShopeCatagory>
       <Carusel></Carusel>
+      {/* <Banner></Banner> */}
+      <ShopeCatagory></ShopeCatagory>
     </div>
   );
 };

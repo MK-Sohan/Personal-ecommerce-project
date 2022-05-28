@@ -9,7 +9,7 @@ import Login from "./Components/Authentication/Login";
 import Register from "./Components/Authentication/Register";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Products from "./Components/Products/Products";
-import Women from "./Components/ParentHome/ShopebyCatagory/Women";
+import WomensCollection from "./Components/ParentHome/ShopebyCatagory/WomensCollection";
 
 function App() {
   return (
@@ -17,7 +17,10 @@ function App() {
       <StandardNavMenu></StandardNavMenu>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/women" element={<Women></Women>}></Route>
+        <Route
+          path="/women"
+          element={<WomensCollection></WomensCollection>}
+        ></Route>
         <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
         <Route path="/products" element={<Products></Products>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
