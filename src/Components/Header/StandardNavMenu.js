@@ -71,14 +71,14 @@ function StandardNavMenu() {
       <div className="items-center hidden lg:flex">
         <Button
           onClick={handlelogin}
-          className=" text-gray-800  bg-transparent bottom-1 border-gray-700 hover:bg-white hover:text-black"
+          className=" text-black bg-transparent bottom-1 border-gray-700 hover:bg-white hover:text-black"
           text="Login"
           size="sm"
         />{" "}
         <span className="px-4 caret-black text-black">|</span>
         <Button
           onClick={handleRegister}
-          className="text-gray-800 bg-transparent bottom-1 border-green-600 hover:bg-green-600 hover:text-white"
+          className="text-black bg-transparent bottom-1 border-green-600 hover:bg-green-600 hover:text-white"
           text="Register"
           size="sm"
         />

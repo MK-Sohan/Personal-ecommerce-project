@@ -7,19 +7,18 @@ const Dashboard = () => {
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle " />
       <div class="  drawer-content flex flex-col items-center pagecontainer  ">
         {/* <!-- Page content here --> */}
-        <h1 className="text-4xl text-center mb-16 mt-10 font-bold text-white">
+        <h1 className="text-4xl text-center mb-16 mt-10 font-bold text-black">
           Welcome to Dashboard
         </h1>
         <Outlet></Outlet>
       </div>
-      <div class="drawer-side">
-        <label for="my-drawer-2" class="drawer-overlay"></label>
+      <div class="drawer-side ">
+        <label for="my-drawer-2" class="drawer-overlay "></label>
         <ul class="menu p-4 overflow-y-auto w-80 bg-slate-500 text-base-content">
           {/* <!-- Sidebar content here --> */}
 
           <>
-            {" "}
-            <li className="text-white">
+            <li className="text-white ">
               <a to="/dashboard">My Orders</a>
             </li>
             {/* <li className="text-white">

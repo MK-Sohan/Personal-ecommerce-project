@@ -9,6 +9,9 @@ const ShopeCatagory = () => {
   const handleMan = () => {
     navigate("/man");
   };
+  const handleShoes = () => {
+    navigate("/shoes");
+  };
 
   return (
     <div className="pb-16 ">
@@ -45,7 +48,10 @@ const ShopeCatagory = () => {
                     src="https://i.ibb.co/SXZvYHs/irene-kredenets-DDqx-X0-7v-KE-unsplash-1.png"
                     alt="shoe-image"
                   />
-                  <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-white py-3 w-36 bg-gray-700">
+                  <button
+                    onClick={handleShoes}
+                    className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-white py-3 w-36 bg-gray-700"
+                  >
                     Shoes
                   </button>
                   <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-white bg-opacity-50" />
@@ -53,11 +59,11 @@ const ShopeCatagory = () => {
                 <div className="relative group flex justify-center items-center h-full w-full">
                   <img
                     className="object-center object-cover h-full w-full"
-                    src="https://i.ibb.co/Hd1pVxW/louis-mornaud-Ju-6-TPKXd-Bs-unsplash-1-2.png"
+                    src="https://i.ibb.co/ZzFYHSx/top-view-accessoires-travel-concept-white-mobile-phone-liste.jpg"
                     alt="watch-image"
                   />
                   <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-white py-3 w-36 bg-gray-700">
-                    Watches
+                    Gadgets
                   </button>
                   <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-white bg-opacity-50" />
                 </div>

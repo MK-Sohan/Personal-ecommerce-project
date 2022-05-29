@@ -1,17 +1,14 @@
 import React from "react";
 
-const SingleWomenCollection = ({ woman }) => {
+const SingleShoes = ({ shoe }) => {
   return (
     <div>
-      <div className=" relative h-[450px] mt-12">
-        <div className=" absolute top-0 left-0 py-2 px-4 bg-white bg-opacity-50 ">
-          <p className="text-xs leading-3 text-gray-800">New</p>
-        </div>
-        <div className=" relative group">
+      <div className=" relative   h-[450px] mt-12">
+        <div className=" relative group  ">
           <div className=" flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-800 via-gray-800 to-opacity-30 group-hover:opacity-50 absolute top-0 left-0 h-full w-full"></div>
           <img
             className=" h-[370px] w-full"
-            src={woman.image}
+            src={shoe.image}
             alt="A girl Posing Img"
           />
           <div className=" absolute bottom-0 p-8 w-full opacity-0 group-hover:opacity-100">
@@ -23,13 +20,13 @@ const SingleWomenCollection = ({ woman }) => {
             </button>
           </div>
         </div>
-        <p className=" font-normal text-xl leading-5 text-gray-800 md:mt-6 mt-4">
-          {woman.productname}
+        <p className=" px-3 font-normal text-xl leading-5 text-gray-800 md:mt-6 mt-4">
+          {shoe.productname}
         </p>
-        <p className=" font-semibold text-xl leading-5 text-gray-800 mt-4">
-          $ {woman.price}
+        <p className=" px-3 font-semibold text-xl leading-5 text-gray-800 mt-4">
+          $ {shoe.price}
         </p>
-        <p className=" font-normal text-base leading-4 text-gray-600 mt-4">
+        <p className="mt-2  px-3 font-normal text-base  text-gray-600 ">
           2 colours
         </p>
       </div>
@@ -37,4 +34,4 @@ const SingleWomenCollection = ({ woman }) => {
   );
 };
 
-export default SingleWomenCollection;
+export default SingleShoes;
