@@ -3,7 +3,7 @@ import SingleGadget from "./SingleGadget";
 
 const Allgadgets = () => {
   const [gadgets, setGadgets] = useState([]);
-  const catagory = "shoes";
+  const catagory = "gadgets";
   useEffect(() => {
     fetch(`http://localhost:5000/gadget/?catagory=${catagory}`)
       .then((res) => res.json())

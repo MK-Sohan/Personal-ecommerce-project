@@ -1,6 +1,12 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
+import "./BestsellingProducts.css";
 const BestsellingProducts = () => {
+  const navigate = useNavigate();
+  const showAllproducts = () => {
+    navigate("/products");
+  };
+
   return (
     <div className="pb-16">
       <div className="flex flex-col justify-center items-center pt-9 sm:pt-12 lg:pt-16 pb-24 sm:pb-52">
@@ -443,6 +449,11 @@ const BestsellingProducts = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="text-center">
+        <button onClick={showAllproducts} class="btnn2 btn-gradient gradient3">
+          See More
+        </button>
       </div>
     </div>
   );
