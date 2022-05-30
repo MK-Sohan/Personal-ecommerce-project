@@ -3,8 +3,9 @@ import SingleWomenCollection from "./SingleWomenCollection";
 
 const WomensCollection = () => {
   const [womanscollection, setWomanscollection] = useState([]);
+  const catagory = "womans";
   useState(() => {
-    fetch("http://localhost:5000/womans")
+    fetch(`http://localhost:5000/womans/?catagory=${catagory}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

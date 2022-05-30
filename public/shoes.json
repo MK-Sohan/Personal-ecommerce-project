@@ -3,72 +3,84 @@
       "image": "https://i.ibb.co/7CYJVWX/usama-akram-k-P6kn-T7tjn4-unsplash.jpg",
       "productname": "Sports Shoes",
       "price": 1550,
+      "catagory":"shoes",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/N3cjFT7/super-straho-5-BMPr-XBFTI8-unsplash.jpg",
       "productname": " Sports Shoes",
       "price": 70,
+      "catagory":"shoes",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/2g3CPgM/usama-akram-g3-CMh2nqj-w-unsplash.jpg",
       "productname": " Shoes",
       "price": 69,
+      "catagory":"shoes",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/sHx02dG/ryan-plomp-jvo-Z-Aux9aw-unsplash.jpg",
       "productname": "Nike Shoes",
       "price": 69,
+      "catagory":"shoes",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/xSVkpFz/revolt-164-6w-VEHf-I-unsplash.jpg",
       "productname": " Shoes",
       "price": 69,
+      "catagory":"shoes",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/nkQQ5pP/alexander-rotker-l8p1a-WZq-Hv-E-unsplash.jpg",
       "productname": "Nike Shoes",
       "price": 69,
+      "catagory":"shoes",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/9ctr1GH/chuttersnap-4-JHMt29fvj8-unsplash.jpg",
       "productname": "Sports Shoes",
       "price": 69,
+      "catagory":"shoes",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/mFht3z3/imani-bahati-Lx-Vx-PA1-LOVM-unsplash.jpg",
       "productname": " Shoes",
       "price": 69,
+      "catagory":"shoes",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/LkLhkZs/daniel-storek-JM-q-KEd1-GMI-unsplash.jpg",
       "productname": " Shoes",
       "price": 69,
+      "catagory":"shoes",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/YhdqghY/irene-kredenets-dw-Ki-Hoqqxk8-unsplash.jpg",
       "productname": " Shoes",
       "price": 69,
+      "catagory":"shoes",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/pW9sr8F/mohammad-metri-E-0-ON3-VGr-Bc-unsplash.jpg",
       "productname": "High Hill",
       "price": 69,
+      "catagory":"shoes",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/f93xR4P/marcus-lewis-87-Dg-FV9-SOc4-unsplash.jpg",
       "productname": " High Hill",
       "price": 69,
+      "catagory":"shoes",
       "description": ""
     }
     

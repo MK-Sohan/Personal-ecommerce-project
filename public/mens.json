@@ -3,78 +3,91 @@
       "image": "https://i.ibb.co/C2nttNj/ryan-hoffman-u6n1-Hr-W0sd-Q-unsplash.jpg",
       "productname": "Men black T-shirt",
       "price": 1550,
+      "catagory":"mans",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/g3MPFPG/ryan-hoffman-cz-LSit-CJ3-Dw-unsplash.jpg",
       "productname": " Cotton Tank Polo",
       "price": 70,
+      "catagory":"mans",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/ncdPhQK/mediamodifier-7c-ERndk-Oy-Dw-unsplash.jpg",
       "productname": "White-tshirt",
       "price": 69,
+      "catagory":"mans",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/BzMSVxS/ryan-hoffman-A7f7-XRKg-UWc-unsplash.jpg",
       "productname": " T-shirt",
       "price": 79,
+      "catagory":"mans",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/xHjXSVC/phil-monte-4-V4t0-Jc-OM5-E-unsplash.jpg",
       "productname": "Wilfred Alana Dress",
       "price": 73,
+      "catagory":"mans",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/wstHzvV/brando-makes-branding-7-WE1-Lb-Sc4z-M-unsplash.jpg ",
       "productname": "Wilfred Alana Dress",
       "price": 75,
+      "catagory":"mans",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/5vm4YgG/santhosh-kumar-Rq-YTu-Wk-Td-Es-unsplash.jpg",
       "productname": "Mens shirt",
       "price": 52,
+      "catagory":"mans",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/P9VXNqT/lee-chinyama-YJN7e-CPi-CPc-unsplash.jpg",
       "productname": "Wilfred Alana Dress",
       "price": 58,
+      "catagory":"mans",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/cctbghx/redd-j-C7n-VH-Sw8k-unsplash.jpg",
       "productname": "Gray pant",
       "price": 58,
+      "catagory":"mans",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/k6JynTr/matt-moloney-Ye-Gao3uk8k-I-unsplash.jpg",
       "productname": "black pant",
       "price": 58,
+      "catagory":"mans",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/WW13yff/engin-akyurt-ahs1-R32-GG9-Y-unsplash.jpg",
       "productname": "Jeens",
       "price": 58,
+      "catagory":"mans",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/RQmXJ95/alicia-petresc-Bci-Ccl8tj-VU-unsplash.jpg",
       "productname": "Jeens",
       "price": 58,
+      "catagory":"mans",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/8g2JYKd/cain-beaudoin-e-WKm-Wt-HV4p-Y-unsplash.jpg",
       "productname": "Jooger",
       "price": 58,
+      "catagory":"mans",
       "description": ""
     }
   ]

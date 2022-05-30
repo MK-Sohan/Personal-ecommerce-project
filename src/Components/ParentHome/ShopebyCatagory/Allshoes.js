@@ -3,8 +3,9 @@ import SingleShoes from "./SingleShoes";
 
 const Allshoes = () => {
   const [shoes, setShoes] = useState([]);
+  const catagory = "shoes";
   useEffect(() => {
-    fetch("http://localhost:5000/shoes")
+    fetch(`http://localhost:5000/shoes/?catagory=${catagory}`)
       .then((res) => res.json())
       .then((data) => setShoes(data));
   }, []);

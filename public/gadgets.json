@@ -3,54 +3,63 @@
       "image": "https://i.ibb.co/qn2s2BF/studio-proper-CWWa6f1-EB5g-unsplash.jpg",
       "productname": "Wireless Charger",
       "price": 550,
+      "catagory":"gadgets",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/XCNSRM6/niclas-illg-z13h-Woxio-unsplash.jpg",
       "productname": "Jbl Headphone",
       "price": 70,
+      "catagory":"gadgets",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/HrH7Mm8/mika-baumeister-G2lgi-BBze-EM-unsplash.jpg",
       "productname": "USB Charging Cable",
       "price": 69,
+      "catagory":"gadgets",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/db4pmc4/lucian-alexe-yh0-Utuei-Z-I-unsplash.jpg",
       "productname": " USB Cable",
       "price": 79,
+      "catagory":"gadgets",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/P4wpsfL/daniel-romero-Ag-LMrojqj-AM-unsplash.jpg",
       "productname": "Air Pods",
       "price": 73,
+      "catagory":"gadgets",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/VB5QTpL/daniel-korpai-o-Ol-PR-Fwd7-A-unsplash.jpg ",
       "productname": "Smart Watch",
       "price": 75,
+      "catagory":"gadgets",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/tBx2gzs/c-d-x-PDX-a-82obo-unsplash.jpg",
       "productname": "HeadPhone",
       "price": 52,
+      "catagory":"gadgets",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/vJX34DD/auguras-pipiras-4xnuc-Ld-UPt-A-unsplash.jpg",
       "productname": "Apple Charger",
       "price": 58,
+      "catagory":"gadgets",
       "description": ""
     },
     {
       "image": "https://i.ibb.co/xhsT7dZ/akhil-yerabati-Q2u-V5-Tkj-Nz8-unsplash.jpg",
       "productname": "Apple Head Phone",
       "price": 58,
+      "catagory":"gadgets",
       "description": ""
     }
   ]

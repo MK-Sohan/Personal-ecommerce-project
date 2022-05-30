@@ -19,7 +19,7 @@ import Allreview from "./Components/ParentHome/Review/Allreview";
 
 function App() {
   return (
-    <div className="  ">
+    <div className="bg-white  ">
       <StandardNavMenu></StandardNavMenu>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
