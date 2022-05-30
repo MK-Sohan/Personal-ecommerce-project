@@ -13,6 +13,8 @@ import WomensCollection from "./Components/ParentHome/ShopebyCatagory/WomensColl
 import Blogs from "./Components/Blogs/Blogs";
 import MansCollection from "./Components/ParentHome/ShopebyCatagory/MansCollection";
 import Allshoes from "./Components/ParentHome/ShopebyCatagory/Allshoes";
+import Allgadgets from "./Components/ParentHome/ShopebyCatagory/Allgadgets";
+import ProductDetail from "./Components/ProductDetail/ProductDetail";
 
 function App() {
   return (
@@ -25,6 +27,11 @@ function App() {
           element={<WomensCollection></WomensCollection>}
         ></Route>
         <Route path="/shoes" element={<Allshoes></Allshoes>}></Route>
+        <Route
+          path="/aboutproduct/:productid"
+          element={<ProductDetail></ProductDetail>}
+        ></Route>
+        <Route path="/gadget" element={<Allgadgets></Allgadgets>}></Route>
         <Route path="/man" element={<MansCollection></MansCollection>}></Route>
         <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
         <Route path="/blog" element={<Blogs></Blogs>}></Route>

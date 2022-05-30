@@ -12,6 +12,9 @@ const ShopeCatagory = () => {
   const handleShoes = () => {
     navigate("/shoes");
   };
+  const handleGadgets = () => {
+    navigate("/gadget");
+  };
 
   return (
     <div className="pb-16 ">
@@ -62,7 +65,10 @@ const ShopeCatagory = () => {
                     src="https://i.ibb.co/ZzFYHSx/top-view-accessoires-travel-concept-white-mobile-phone-liste.jpg"
                     alt="watch-image"
                   />
-                  <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-white py-3 w-36 bg-gray-700">
+                  <button
+                    onClick={handleGadgets}
+                    className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-white py-3 w-36 bg-gray-700"
+                  >
                     Gadgets
                   </button>
                   <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-white bg-opacity-50" />
