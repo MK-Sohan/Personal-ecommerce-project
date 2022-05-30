@@ -16,6 +16,7 @@ import Allshoes from "./Components/ParentHome/ShopebyCatagory/Allshoes";
 import Allgadgets from "./Components/ParentHome/ShopebyCatagory/Allgadgets";
 import ProductDetail from "./Components/ProductDetail/ProductDetail";
 import Allreview from "./Components/ParentHome/Review/Allreview";
+import RequireAuth from "./Components/Authentication/RequireAuth";
 
 function App() {
   return (
@@ -25,19 +26,65 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route
           path="/women"
-          element={<WomensCollection></WomensCollection>}
+          element={
+            <RequireAuth>
+              <WomensCollection></WomensCollection>
+            </RequireAuth>
+          }
         ></Route>
-        <Route path="/shoes" element={<Allshoes></Allshoes>}></Route>
+        <Route
+          path="/shoes"
+          element={
+            <RequireAuth>
+              <Allshoes></Allshoes>
+            </RequireAuth>
+          }
+        ></Route>
         <Route
           path="/aboutproduct/:productid"
-          element={<ProductDetail></ProductDetail>}
+          element={
+            <RequireAuth>
+              <ProductDetail></ProductDetail>
+            </RequireAuth>
+          }
         ></Route>
-        <Route path="/gadget" element={<Allgadgets></Allgadgets>}></Route>
-        <Route path="/review" element={<Allreview></Allreview>}></Route>
-        <Route path="/man" element={<MansCollection></MansCollection>}></Route>
-        <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
+        <Route
+          path="/gadget"
+          element={
+            <RequireAuth>
+              <Allgadgets></Allgadgets>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/review"
+          element={
+            <RequireAuth>
+              <Allreview></Allreview>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/man"
+          element={
+            <RequireAuth>
+              <MansCollection></MansCollection>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/dashboard"
+          element={RequireAuth > <Dashboard></Dashboard>}
+        ></Route>
         <Route path="/blog" element={<Blogs></Blogs>}></Route>
-        <Route path="/products" element={<Products></Products>}></Route>
+        <Route
+          path="/products"
+          element={
+            <RequireAuth>
+              <Products></Products>
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
       </Routes>

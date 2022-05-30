@@ -8,7 +8,7 @@ const Dashboard = () => {
       <div class="  drawer-content flex flex-col items-center pagecontainer  ">
         {/* <!-- Page content here --> */}
         <h1 className="text-4xl text-center mb-16 mt-10 font-bold text-black">
-          Welcome to Dashboard
+          Welcome to Dashboard a;djfdalskjfl
         </h1>
         <Outlet></Outlet>
       </div>

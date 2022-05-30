@@ -451,7 +451,7 @@ const BestsellingProducts = () => {
         </div>
       </div>
       <div className="text-center">
-        <button onClick={showAllproducts} class="btnn2 btn-gradient gradient3">
+        <button onClick={showAllproducts} class="btn2 btn-gradient gradient2">
           See More
         </button>
       </div>

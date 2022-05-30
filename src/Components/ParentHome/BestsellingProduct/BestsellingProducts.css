@@ -1,14 +1,18 @@
-.gradient3 {
+.gradient2 {
   background-image: linear-gradient(
     60deg,
-    #8c38fe 10%,
-    #b72ee4 50%,
-    #9c66e5 100%
+    #4aa5fb 10%,
+    #1ccafa 50%,
+    #00e1f9 100%
   );
-  box-shadow: 0 2px 25px 0 rgba(111, 30, 138, 0.35);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 0px;
 }
-
-.gradient3:hover {
-  box-shadow: 0 10px 30px 0 #8c38fe, 0 5px 0 0 #9c66e5;
-  transform: translateY(-5px);
+.gradient2:hover {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 12px;
 }

@@ -1,8 +1,19 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./login.css";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import Loading from "../Share/Loading";
+
 const Login = () => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+
   const {
     register,
     formState: { errors },
@@ -10,9 +21,30 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    // signInWithEmailAndPassword(data.email, data.password);
+    signInWithEmailAndPassword(data.email, data.password);
   };
+  let location = useLocation();
+  const navigate = useNavigate();
+  let from = location.state?.from?.pathname || "/";
 
+  useEffect(() => {
+    if (user || guser) {
+      navigate(from, { replace: true });
+    }
+  }, [user, from, navigate]);
+
+  let signInError;
+  if (error || gerror) {
+    signInError = (
+      <p className="text-red-600 text-[18px] py-3">
+        {error?.message || gerror?.message}
+      </p>
+    );
+  }
+
+  if (loading || gloading) {
+    return <Loading></Loading>;
+  }
   return (
     <div>
       <div className="login-container  ">
@@ -89,7 +121,7 @@ const Login = () => {
                   </label>
                 </div>
 
-                {/* {signInError} */}
+                {signInError}
                 <input
                   className="btn w-full max-w-xs text-white"
                   type="submit"
@@ -106,7 +138,7 @@ const Login = () => {
               </p>
               <div className="divider text-black">OR</div>
               <button
-                // onClick={() => signInWithGoogle()}
+                onClick={() => signInWithGoogle()}
                 className="btn btn-outline hover:bg-green-500 hover:border-0"
               >
                 Continue with Google

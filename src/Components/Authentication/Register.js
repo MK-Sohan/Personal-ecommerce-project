@@ -1,15 +1,50 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./register.css";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import Loading from "../Share/Loading";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+
 const Register = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
 
-  const onSubmit = (data) => {};
+  const onSubmit = (data) => {
+    const email = data.email;
+    const password = data.password;
+    console.log(email, password, data);
+    createUserWithEmailAndPassword(email, password);
+    reset();
+  };
+
+  useEffect(() => {
+    if (user || guser) {
+      navigate("/");
+    }
+  }, [navigate]);
+
+  let signInError;
+  if (error || gerror) {
+    signInError = (
+      <p className="text-red-600 text-[18px] py-3">
+        {error?.message || gerror?.message}
+      </p>
+    );
+  }
+
+  if (loading || gloading) {
+    return <Loading></Loading>;
+  }
 
   return (
     <div>
@@ -111,7 +146,7 @@ const Register = () => {
                   </label>
                 </div>
 
-                {/* {signInError} */}
+                {signInError}
                 <input
                   className="btn w-full max-w-xs text-white"
                   type="submit"
@@ -128,7 +163,7 @@ const Register = () => {
               </p>
               <div className="divider text-black">OR</div>
               <button
-                // onClick={() => signInWithGoogle()}
+                onClick={() => signInWithGoogle()}
                 className="btn btn-outline hover:bg-green-500 hover:border-0"
               >
                 Continue with Google

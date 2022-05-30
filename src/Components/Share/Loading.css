@@ -1,72 +1,84 @@
-* {
-  box-sizing: border-box;
+.mainloading-container {
+  height: 100vh;
 }
 
-body {
-  background-color: #10002b;
+.lds-spinner {
+  color: official;
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-left: 900px;
+  margin-top: 380px;
 }
-
-.loader {
-  height: 300px;
-  width: 300px;
+.lds-spinner div {
+  transform-origin: 40px 40px;
+  animation: lds-spinner 1.2s linear infinite;
+}
+.lds-spinner div:after {
+  content: " ";
+  display: block;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  display: -webkit-box;
-  display: flex;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-perspective: 500px;
-  perspective: 500px;
-  -webkit-transform: rotatex(60deg);
-  transform: rotatex(60deg);
-  border-radius: 500px;
+  top: 3px;
+  left: 37px;
+  width: 6px;
+  height: 18px;
+  border-radius: 20%;
+  background: rgb(8, 1, 1);
 }
-.loader .circle {
-  --distance: 20px;
-  --animationEase: ease-in-out;
-  position: absolute;
-  top: calc(var(--index) * var(--distance));
-  bottom: calc(var(--index) * var(--distance));
-  left: calc(var(--index) * var(--distance));
-  right: calc(var(--index) * var(--distance));
-  margin: auto;
-  border: 20px solid var(--color);
-  -webkit-animation: animate var(--animationSpeed) var(--animationEase) infinite;
-  animation: animate var(--animationSpeed) var(--animationEase) infinite;
-  -webkit-animation-delay: calc(
-    var(--index) * (var(--animationSpeed) / var(--circlesCount))
-  );
-  animation-delay: calc(
-    var(--index) * (var(--animationSpeed) / var(--circlesCount))
-  );
-  border-radius: 500px;
-  box-shadow: 0px 4px 4px var(--color), 0px 4px 8px var(--color) inset,
-    0px 4px 10px var(--color) inset;
+.lds-spinner div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.1s;
 }
-
-@-webkit-keyframes animate {
-  0%,
+.lds-spinner div:nth-child(2) {
+  transform: rotate(30deg);
+  animation-delay: -1s;
+}
+.lds-spinner div:nth-child(3) {
+  transform: rotate(60deg);
+  animation-delay: -0.9s;
+}
+.lds-spinner div:nth-child(4) {
+  transform: rotate(90deg);
+  animation-delay: -0.8s;
+}
+.lds-spinner div:nth-child(5) {
+  transform: rotate(120deg);
+  animation-delay: -0.7s;
+}
+.lds-spinner div:nth-child(6) {
+  transform: rotate(150deg);
+  animation-delay: -0.6s;
+}
+.lds-spinner div:nth-child(7) {
+  transform: rotate(180deg);
+  animation-delay: -0.5s;
+}
+.lds-spinner div:nth-child(8) {
+  transform: rotate(210deg);
+  animation-delay: -0.4s;
+}
+.lds-spinner div:nth-child(9) {
+  transform: rotate(240deg);
+  animation-delay: -0.3s;
+}
+.lds-spinner div:nth-child(10) {
+  transform: rotate(270deg);
+  animation-delay: -0.2s;
+}
+.lds-spinner div:nth-child(11) {
+  transform: rotate(300deg);
+  animation-delay: -0.1s;
+}
+.lds-spinner div:nth-child(12) {
+  transform: rotate(330deg);
+  animation-delay: 0s;
+}
+@keyframes lds-spinner {
+  0% {
+    opacity: 1;
+  }
   100% {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-  }
-  50% {
-    -webkit-transform: translateZ(calc(var(--index) * var(--distance) * -1));
-    transform: translateZ(calc(var(--index) * var(--distance) * -1));
-  }
-}
-@keyframes animate {
-  0%,
-  100% {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-  }
-  50% {
-    -webkit-transform: translateZ(calc(var(--index) * var(--distance) * -1));
-    transform: translateZ(calc(var(--index) * var(--distance) * -1));
+    opacity: 0;
   }
 }

@@ -15,9 +15,13 @@ import Avatar from "../Avatar/Avatar";
 import Button from "../Button/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { faProductHunt } from "@fortawesome/free-brands-svg-icons";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { signOut } from "firebase/auth";
 
 function StandardNavMenu() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
   const handlelogin = () => {
     navigate("/login");
@@ -25,7 +29,9 @@ function StandardNavMenu() {
   const handleRegister = () => {
     navigate("/register");
   };
-
+  const logout = () => {
+    signOut(auth);
+  };
   return (
     <div className="flex items-center sticky top-0 h-20 px-6 justify-between  bg-[#ffc532] text-white  z-50">
       <div className="h-8">
@@ -69,16 +75,26 @@ function StandardNavMenu() {
         </Link>
       </div>
       <div className="items-center hidden lg:flex">
-        <Button
-          onClick={handlelogin}
-          className=" text-black bg-transparent bottom-1 border-gray-700 hover:bg-white hover:text-black"
-          text="Login"
-          size="sm"
-        />{" "}
+        {user ? (
+          <Button
+            onClick={logout}
+            className=" text-black bg-red-600 bottom-1 border-0 hover:bg-white hover:text-black"
+            text="Sign out"
+            size="sm"
+          />
+        ) : (
+          <Button
+            onClick={handlelogin}
+            className=" text-black bg-transparent bottom-1 border-gray-700 hover:bg-white hover:text-black"
+            text="Log in"
+            size="sm"
+          />
+        )}
         <span className="px-4 caret-black text-black">|</span>
         <Button
           onClick={handleRegister}
-          className="text-black bg-transparent bottom-1 border-green-600 hover:bg-green-600 hover:text-white"
+          className="text-black bg-transparent bottom-1 border-0 hover:bg-green-600 
+           hover:text-white "
           text="Register"
           size="sm"
         />
@@ -90,12 +106,21 @@ function StandardNavMenu() {
           icon={faBell}
           className="ml-6 text-2xl cursor-pointer text-gray-700"
         />
-        <Avatar
-          size="base"
-          image="https://gustui.s3.amazonaws.com/avatar.png"
-          status="offline"
-          className="ml-6 cursor-pointer "
-        />
+        {user ? (
+          <Avatar
+            className="ml-3"
+            size="base"
+            image={user?.image}
+            status="online"
+          />
+        ) : (
+          <Avatar
+            className="ml-3"
+            size="base"
+            image={user?.image}
+            status="busy"
+          />
+        )}
       </div>
       <FontAwesomeIcon
         icon={mobileOpen ? faTimes : faBars}
@@ -156,11 +181,21 @@ function StandardNavMenu() {
                 className="text-2xl mx-2 cursor-pointer"
               />
             </div>
-            <Avatar
-              size="lg"
-              image="https://gustui.s3.amazonaws.com/avatar.png"
-              status="offline"
-            />
+            {user ? (
+              <Avatar
+                className="ml-3"
+                size="base"
+                image={user?.image}
+                status="online"
+              />
+            ) : (
+              <Avatar
+                className="ml-3"
+                size="base"
+                image={user?.image}
+                status="busy"
+              />
+            )}
           </div>
         </div>
       )}
