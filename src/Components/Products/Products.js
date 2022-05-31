@@ -5,7 +5,11 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("http://localhost:5000/products", {
+      // headers: {
+      //   authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+      // },
+    })
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

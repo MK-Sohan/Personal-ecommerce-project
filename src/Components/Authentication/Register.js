@@ -6,35 +6,44 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../Share/Loading";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useUpdateProfile } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
+import useToken from "../Hooks/useToken";
 
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
-  const navigate = useNavigate();
+
+  const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
+  // console.log(user);
+
   const {
     register,
     formState: { errors },
     handleSubmit,
-    reset,
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
+    const name = data.name;
     const email = data.email;
     const password = data.password;
-    console.log(email, password, data);
-    createUserWithEmailAndPassword(email, password);
-    reset();
+    // console.log(email, password, data);
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
+
+    toast("Your Profile is Updated");
   };
 
-  useEffect(() => {
-    if (user || guser) {
-      navigate("/");
-    }
-  }, [navigate]);
+  const [token] = useToken(user || guser);
+  const navigate = useNavigate();
+
+  if (token) {
+    navigate("/");
+  }
 
   let signInError;
-  if (error || gerror) {
+  if (error || gerror || updateerror) {
     signInError = (
       <p className="text-red-600 text-[18px] py-3">
         {error?.message || gerror?.message}
@@ -42,16 +51,16 @@ const Register = () => {
     );
   }
 
-  if (loading || gloading) {
+  if (loading || gloading || updating) {
     return <Loading></Loading>;
   }
 
   return (
     <div>
       <div className="register-container  ">
-        <div className="flex h-screen justify-center mr-96  items-center ">
+        <div className="flex h-screen justify-center lg:mr-96  items-center ">
           <div className="card w-96  shadow-2xl ">
-            <div className="card-body bg-transparent">
+            <div className="card-body bg-base-100">
               <h2 className="text-center text-black text-2xl font-bold">
                 Register
               </h2>

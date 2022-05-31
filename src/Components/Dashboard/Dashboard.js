@@ -5,7 +5,26 @@ const Dashboard = () => {
   return (
     <div class="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle " />
+
       <div class="  drawer-content flex flex-col items-center pagecontainer  ">
+        <div className="mr-[330px] mt-3">
+          <label for="my-drawer-2" class=" drawer-button text-black lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </label>
+        </div>
         {/* <!-- Page content here --> */}
         <h1 className="text-4xl text-center mb-16 mt-10 font-bold text-black">
           Welcome to Dashboard a;djfdalskjfl
@@ -19,6 +38,9 @@ const Dashboard = () => {
 
           <>
             <li className="text-white ">
+              <a to="/dashboard">My Orders</a>
+              <a to="/dashboard">My Orders</a>
+              <a to="/dashboard">My Orders</a>
               <a to="/dashboard">My Orders</a>
             </li>
             {/* <li className="text-white">

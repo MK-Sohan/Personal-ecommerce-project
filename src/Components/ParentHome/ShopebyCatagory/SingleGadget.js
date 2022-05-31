@@ -1,6 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const SingleGadget = ({ gadget }) => {
+  const navigate = useNavigate();
+  const handleDetails = (id) => {
+    navigate("/aboutproduct/" + id);
+  };
+
   return (
     <div>
       <div className=" relative  h-[450px] mt-12">
@@ -15,7 +21,10 @@ const SingleGadget = ({ gadget }) => {
             <button className=" font-medium text-base leading-4 text-gray-800 bg-white py-3 w-full hover:bg-green-600 hover:text-white">
               Add to bag
             </button>
-            <button className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-white hover:bg-orange-400  hover:border-0">
+            <button
+              onClick={() => handleDetails(gadget._id)}
+              className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-white hover:bg-orange-400  hover:border-0"
+            >
               Quick View
             </button>
           </div>

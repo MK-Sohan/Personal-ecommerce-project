@@ -8,6 +8,7 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../Share/Loading";
+import useToken from "../Hooks/useToken";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -23,15 +24,17 @@ const Login = () => {
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
   };
+
+  const [token] = useToken(user || guser);
   let location = useLocation();
   const navigate = useNavigate();
   let from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
-    if (user || guser) {
+    if (token) {
       navigate(from, { replace: true });
     }
-  }, [user, from, navigate]);
+  }, [token, from, navigate]);
 
   let signInError;
   if (error || gerror) {
@@ -48,9 +51,9 @@ const Login = () => {
   return (
     <div>
       <div className="login-container  ">
-        <div className="flex h-screen justify-center mr-96  items-center ">
+        <div className="flex h-screen justify-center lg:mr-96  items-center ">
           <div className="card w-96  shadow-2xl ">
-            <div className="card-body bg-transparent">
+            <div className="card-body bg-base-100">
               <h2 className="text-center text-black text-2xl font-bold">
                 Register
               </h2>

@@ -9,6 +9,7 @@ import {
   faHome,
   faBox,
   faBlog,
+  faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 
 import Avatar from "../Avatar/Avatar";
@@ -31,6 +32,11 @@ function StandardNavMenu() {
   };
   const logout = () => {
     signOut(auth);
+  };
+
+  const nvigate = useNavigate();
+  const handleGotocart = () => {
+    navigate("/cart");
   };
   return (
     <div className="flex items-center sticky top-0 h-20 px-6 justify-between  bg-[#ffc532] text-white  z-50">
@@ -85,7 +91,7 @@ function StandardNavMenu() {
         ) : (
           <Button
             onClick={handlelogin}
-            className=" text-black bg-transparent bottom-1 border-gray-700 hover:bg-white hover:text-black"
+            className=" text-black bg-transparent bottom-1   hover:bg-white hover:text-black"
             text="Log in"
             size="sm"
           />
@@ -93,13 +99,13 @@ function StandardNavMenu() {
         <span className="px-4 caret-black text-black">|</span>
         <Button
           onClick={handleRegister}
-          className="text-black bg-transparent bottom-1 border-0 hover:bg-green-600 
-           hover:text-white "
+          className="text-black bg-transparent bottom-1 border-0 hover:bg-green-600   "
           text="Register"
           size="sm"
         />
         <FontAwesomeIcon
-          icon={faQuestionCircle}
+          onClick={handleGotocart}
+          icon={faCartShopping}
           className="ml-6 text-2xl cursor-pointer text-gray-700"
         />
         <FontAwesomeIcon
@@ -166,7 +172,7 @@ function StandardNavMenu() {
               </span>
               <Button
                 onClick={handleRegister}
-                className=" text-gray-200 bg-transparent bottom-1 mt-6  border-green-600 hover:bg-green-600 hover:text-white"
+                className=" text-black bg-transparent bottom-1 mt-6  border-green-600 hover:bg-green-600 hover:text-white"
                 text="Register"
                 size="sm"
               />

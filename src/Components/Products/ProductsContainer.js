@@ -1,12 +1,36 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import auth from "../../firebase.init";
 
 const ProductsContainer = ({ product }) => {
   const navigate = useNavigate();
   const handleProductDetail = (id) => {
     navigate("/aboutproduct/" + id);
   };
+  const [user] = useAuthState(auth);
+  const handleAddtocart = (p) => {
+    const cartProduct = {
+      name: p.productname,
+      image: p.image,
+      price: p.price,
+      email: user?.email,
+    };
 
+    fetch("http://localhost:5000/carts", {
+      method: "POST",
+      body: JSON.stringify(cartProduct),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        toast("Item aded to the cart");
+        console.log(json);
+      });
+  };
   return (
     <div>
       <div className=" relative  h-[450px] mt-12">
@@ -18,11 +42,14 @@ const ProductsContainer = ({ product }) => {
             alt="A girl Posing Img"
           />
           <div className=" absolute bottom-0 p-8 w-full opacity-0 group-hover:opacity-100">
-            <button className=" font-medium text-base leading-4 text-gray-800 bg-white py-3 w-full hover:bg-green-600 hover:text-white">
+            <button
+              onClick={() => handleAddtocart(product._id)}
+              className=" font-medium text-base leading-4 text-gray-800 bg-white py-3 w-full hover:bg-green-600 hover:text-white"
+            >
               Add to bag
             </button>
             <button
-              onClick={() => handleProductDetail(product._id)}
+              onClick={() => handleProductDetail(product)}
               className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-white hover:bg-orange-400  hover:border-0"
             >
               Quick View

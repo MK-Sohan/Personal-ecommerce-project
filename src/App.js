@@ -17,7 +17,9 @@ import Allgadgets from "./Components/ParentHome/ShopebyCatagory/Allgadgets";
 import ProductDetail from "./Components/ProductDetail/ProductDetail";
 import Allreview from "./Components/ParentHome/Review/Allreview";
 import RequireAuth from "./Components/Authentication/RequireAuth";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Carts from "./Components/Cartsection/Carts";
 function App() {
   return (
     <div className="bg-white  ">
@@ -37,6 +39,14 @@ function App() {
           element={
             <RequireAuth>
               <Allshoes></Allshoes>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/cart"
+          element={
+            <RequireAuth>
+              <Carts></Carts>
             </RequireAuth>
           }
         ></Route>
@@ -74,7 +84,11 @@ function App() {
         ></Route>
         <Route
           path="/dashboard"
-          element={RequireAuth > <Dashboard></Dashboard>}
+          element={
+            <RequireAuth>
+              <Dashboard></Dashboard>
+            </RequireAuth>
+          }
         ></Route>
         <Route path="/blog" element={<Blogs></Blogs>}></Route>
         <Route
@@ -89,6 +103,7 @@ function App() {
         <Route path="/register" element={<Register></Register>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }
