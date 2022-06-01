@@ -6,8 +6,20 @@ import {
   faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGratipay } from "@fortawesome/free-brands-svg-icons";
-const SingleCarts = ({ cart }) => {
+import { useQuery } from "react-query";
+const SingleCarts = ({ cart, refetch }) => {
   // console.log(cart);
+
+  const HandleDelete = (id) => {
+    const proceed = window.confirm("Are You Shure?");
+    if (proceed) {
+      fetch(`http://localhost:5000/cart/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => refetch());
+    }
+  };
 
   return (
     <tr>
@@ -49,7 +61,10 @@ const SingleCarts = ({ cart }) => {
         </button>
       </th>
       <th>
-        <button class="btn btn-error btn-xs">
+        <button
+          onClick={() => HandleDelete(cart._id)}
+          class="btn btn-error btn-xs"
+        >
           {" "}
           <FontAwesomeIcon
             icon={faTrashCan}

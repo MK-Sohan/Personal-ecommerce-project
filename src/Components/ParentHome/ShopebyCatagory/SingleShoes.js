@@ -1,10 +1,17 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
 
 const SingleShoes = ({ shoe }) => {
   const [user] = useAuthState(auth);
+
+  const navigate = useNavigate();
+  const handleDetails = (id) => {
+    navigate("/aboutproduct/" + id);
+  };
+
   const handleAddtocart = (p) => {
     const cartProduct = {
       name: p.productname,
@@ -43,7 +50,10 @@ const SingleShoes = ({ shoe }) => {
             >
               Add to bag
             </button>
-            <button className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-white hover:bg-orange-400  hover:border-0">
+            <button
+              onClick={() => handleDetails(shoe._id)}
+              className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-white hover:bg-orange-400  hover:border-0"
+            >
               Quick View
             </button>
           </div>
