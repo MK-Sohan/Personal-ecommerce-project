@@ -20,6 +20,9 @@ import RequireAuth from "./Components/Authentication/RequireAuth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Carts from "./Components/Cartsection/Carts";
+import Myprofile from "./Components/Myprofile/Myprofile";
+import Myreview from "./Components/Dashboard/Myreview";
+import EditProfile from "./Components/Myprofile/EditProfile";
 function App() {
   return (
     <div className="bg-white  ">
@@ -89,7 +92,14 @@ function App() {
               <Dashboard></Dashboard>
             </RequireAuth>
           }
-        ></Route>
+        >
+          <Route index element={<Myprofile></Myprofile>}></Route>
+          <Route path="review" element={<Myreview></Myreview>}></Route>
+          <Route
+            path="editprofile"
+            element={<EditProfile></EditProfile>}
+          ></Route>
+        </Route>
         <Route path="/blog" element={<Blogs></Blogs>}></Route>
         <Route
           path="/products"

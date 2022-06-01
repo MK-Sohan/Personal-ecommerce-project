@@ -3,12 +3,12 @@ import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <div class="drawer drawer-mobile">
+    <div class="drawer drawer-mobile bg-gradient-to-tl from-green-400 to-indigo-900  ">
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle " />
 
       <div class="  drawer-content flex flex-col items-center pagecontainer  ">
         <div className="mr-[330px] mt-3">
-          <label for="my-drawer-2" class=" drawer-button text-black lg:hidden">
+          <label for="my-drawer-2" class=" drawer-button text-black  lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-10 w-10"
@@ -27,7 +27,7 @@ const Dashboard = () => {
         </div>
         {/* <!-- Page content here --> */}
         <h1 className="text-4xl text-center mb-16 mt-10 font-bold text-black">
-          Welcome to Dashboard a;djfdalskjfl
+          Welcome to Dashboard
         </h1>
         <Outlet></Outlet>
       </div>
@@ -38,10 +38,10 @@ const Dashboard = () => {
 
           <>
             <li className="text-white ">
-              <a to="/dashboard">My Orders</a>
-              <a to="/dashboard">My Orders</a>
-              <a to="/dashboard">My Orders</a>
-              <a to="/dashboard">My Orders</a>
+              <Link to="/dashboard">My Profile</Link>
+            </li>
+            <li className="text-white ">
+              <Link to="/dashboard/review">My Reviews</Link>
             </li>
             {/* <li className="text-white">
               <Link to="/dashboard/addreview">Add A Review</Link>
