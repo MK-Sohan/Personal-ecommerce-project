@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
 import SingleMansCollection from "./SingleMansCollection";
 
 const MansCollection = () => {
@@ -9,7 +11,7 @@ const MansCollection = () => {
       .then((res) => res.json())
       .then((data) => setMensCollection(data));
   }, []);
-
+  const [user] = useAuthState(auth);
   return (
     <div className="">
       <div className=" 2xl:container 2xl:mx-auto ">
@@ -27,6 +29,7 @@ const MansCollection = () => {
               <SingleMansCollection
                 key={man._id}
                 man={man}
+                user={user}
               ></SingleMansCollection>
             ))}
           </div>

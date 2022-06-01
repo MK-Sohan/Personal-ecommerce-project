@@ -55,14 +55,7 @@ function StandardNavMenu() {
           <FontAwesomeIcon icon={faHome} className=" mr-2" />
           Home
         </Link>
-        <Link
-          to="/dashboard"
-          className="no-underline px-2 mr-3 text-gray-700 font-bold
-          text-xl hover:text-white"
-        >
-          <FontAwesomeIcon icon={faDashboard} className=" mr-2" />
-          Dashboard
-        </Link>
+
         <Link
           to="/products"
           className="no-underline px-2 mr-3 text-gray-700 font-bold
@@ -70,6 +63,14 @@ function StandardNavMenu() {
         >
           <FontAwesomeIcon icon={faBox} className=" mr-2" />
           Products
+        </Link>
+        <Link
+          to="/dashboard"
+          className="no-underline px-2 mr-3 text-gray-700 font-bold
+          text-xl hover:text-white"
+        >
+          <FontAwesomeIcon icon={faDashboard} className=" mr-2" />
+          Dashboard
         </Link>
         <Link
           to="/blog"
@@ -144,14 +145,7 @@ function StandardNavMenu() {
               <FontAwesomeIcon icon={faHome} className=" mr-2 mt-6 " />
               Home
             </Link>
-            <Link
-              to="/dashboard"
-              className="no-underline px-2 mr-3 text-gray-200 font-bold
-          text-xl hover:text-white"
-            >
-              <FontAwesomeIcon icon={faDashboard} className=" mr-2 mt-6 " />
-              Dashboard
-            </Link>
+
             <Link
               to="/products"
               className="no-underline px-2 mr-3 text-gray-200 font-bold
@@ -159,6 +153,14 @@ function StandardNavMenu() {
             >
               <FontAwesomeIcon icon={faBox} className=" mr-2 mt-6 " />
               Products
+            </Link>
+            <Link
+              to="/dashboard"
+              className="no-underline px-2 mr-3 text-gray-200 font-bold
+          text-xl hover:text-white"
+            >
+              <FontAwesomeIcon icon={faDashboard} className=" mr-2 mt-6 " />
+              Dashboard
             </Link>
             <div className="flex">
               <Button

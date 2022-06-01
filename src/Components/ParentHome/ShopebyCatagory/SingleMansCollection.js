@@ -1,11 +1,35 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-const SingleMansCollection = ({ man }) => {
+const SingleMansCollection = ({ man, user }) => {
   const navigate = useNavigate();
 
   const mansDetails = (id) => {
     navigate("/aboutproduct/" + id);
+  };
+
+  const handleAddtocartt = (p) => {
+    console.log(p);
+    const cartProduct = {
+      name: p.productname,
+      image: p.image,
+      price: p.price,
+      email: user?.email,
+    };
+    console.log(cartProduct);
+    fetch("http://localhost:5000/cart", {
+      method: "POST",
+      body: JSON.stringify(cartProduct),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        toast("Item aded to the cart");
+        console.log(json);
+      });
   };
   return (
     <div className="">
@@ -18,7 +42,10 @@ const SingleMansCollection = ({ man }) => {
             alt="A girl Posing Img"
           />
           <div className=" absolute bottom-0 p-8 w-full opacity-0 group-hover:opacity-100">
-            <button className=" font-medium text-base leading-4 text-gray-800 bg-white py-3 w-full hover:bg-green-600 hover:text-white">
+            <button
+              onClick={() => handleAddtocartt(man)}
+              className=" font-medium text-base leading-4 text-gray-800 bg-white py-3 w-full hover:bg-green-600 hover:text-white"
+            >
               Add to bag
             </button>
             <button

@@ -12,6 +12,7 @@ const WomensCollection = () => {
         setWomanscollection(data);
       });
   }, []);
+
   return (
     <div className="">
       <div className=" 2xl:container 2xl:mx-auto ">

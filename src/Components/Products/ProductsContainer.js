@@ -11,14 +11,15 @@ const ProductsContainer = ({ product }) => {
   };
   const [user] = useAuthState(auth);
   const handleAddtocart = (p) => {
+    console.log(p);
     const cartProduct = {
       name: p.productname,
       image: p.image,
       price: p.price,
       email: user?.email,
     };
-
-    fetch("http://localhost:5000/carts", {
+    console.log(cartProduct);
+    fetch("http://localhost:5000/cart", {
       method: "POST",
       body: JSON.stringify(cartProduct),
       headers: {
@@ -43,13 +44,13 @@ const ProductsContainer = ({ product }) => {
           />
           <div className=" absolute bottom-0 p-8 w-full opacity-0 group-hover:opacity-100">
             <button
-              onClick={() => handleAddtocart(product._id)}
+              onClick={() => handleAddtocart(product)}
               className=" font-medium text-base leading-4 text-gray-800 bg-white py-3 w-full hover:bg-green-600 hover:text-white"
             >
               Add to bag
             </button>
             <button
-              onClick={() => handleProductDetail(product)}
+              onClick={() => handleProductDetail(product._id)}
               className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-white hover:bg-orange-400  hover:border-0"
             >
               Quick View

@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
+import auth from "../../../firebase.init";
 import SingleGadget from "./SingleGadget";
 
 const Allgadgets = () => {
@@ -9,6 +12,7 @@ const Allgadgets = () => {
       .then((res) => res.json())
       .then((data) => setGadgets(data));
   }, []);
+  const [user] = useAuthState(auth);
   return (
     <div>
       <div className=" 2xl:container 2xl:mx-auto ">
@@ -23,7 +27,11 @@ const Allgadgets = () => {
           <div className=" flex justify-between items-center"></div>
           <div className=" grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-y-12 lg:gap-x-8 sm:gap-y-10 sm:gap-x-6 gap-y-6 lg:mt-12 mt-10">
             {gadgets?.map((gadget) => (
-              <SingleGadget key={gadget._id} gadget={gadget}></SingleGadget>
+              <SingleGadget
+                user={user}
+                key={gadget._id}
+                gadget={gadget}
+              ></SingleGadget>
             ))}
           </div>
           <div className=" flex justify-center items-center">
