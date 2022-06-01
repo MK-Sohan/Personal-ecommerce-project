@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import auth from "../../firebase.init";
 import useProductDetails from "../Hooks/useProductDetails";
 import Loading from "../Share/Loading";
 
@@ -16,7 +19,7 @@ const ProductDetail = () => {
 
   const [rotate, setRotate] = useState(false);
   const [count, setCount] = useState(0);
-
+  const [user] = useAuthState(auth);
   const addCount = () => {
     setCount((prev) => prev + 1);
   };
@@ -26,7 +29,28 @@ const ProductDetail = () => {
       setCount((prev) => prev - 1);
     }
   };
-
+  const handleAddtocartt = (p) => {
+    console.log(p);
+    const cartProduct = {
+      name: p.productname,
+      image: p.image,
+      price: p.price,
+      email: user?.email,
+    };
+    console.log(cartProduct);
+    fetch("http://localhost:5000/cart", {
+      method: "POST",
+      body: JSON.stringify(cartProduct),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        toast("Item aded to the cart");
+        console.log(json);
+      });
+  };
   console.log(detail);
   return (
     <div className="h-full lg:mb-96">
@@ -180,7 +204,10 @@ const ProductDetail = () => {
               <hr className=" bg-gray-200 w-full mt-4" />
             </div>
 
-            <button className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6">
+            <button
+              onClick={() => handleAddtocartt(detail)}
+              className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6"
+            >
               Add to shopping bag
             </button>
           </div>

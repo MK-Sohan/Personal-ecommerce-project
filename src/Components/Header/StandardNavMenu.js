@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faQuestionCircle,
@@ -19,10 +19,20 @@ import { faProductHunt } from "@fortawesome/free-brands-svg-icons";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
+import { useQuery } from "react-query";
+import Loading from "../Share/Loading";
 
 function StandardNavMenu() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [user, loading, error] = useAuthState(auth);
+  const [carts, setCarts] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/carts/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setCarts(data));
+  }, [carts]);
+
   const navigate = useNavigate();
   const handlelogin = () => {
     navigate("/login");
@@ -34,10 +44,10 @@ function StandardNavMenu() {
     signOut(auth);
   };
 
-  const nvigate = useNavigate();
   const handleGotocart = () => {
     navigate("/cart");
   };
+
   return (
     <div className="flex items-center sticky top-0 h-20 px-6 justify-between  bg-[#ffc532] text-white  z-50">
       <div className="h-8">
@@ -109,6 +119,7 @@ function StandardNavMenu() {
           icon={faCartShopping}
           className="ml-6 text-2xl cursor-pointer text-gray-700"
         />
+        <div class="badge badge-sm mb-9">{carts.length}</div>
         <FontAwesomeIcon
           icon={faBell}
           className="ml-6 text-2xl cursor-pointer text-gray-700"
@@ -181,12 +192,14 @@ function StandardNavMenu() {
             </div>
             <div className="my-5  flex justify-center">
               <FontAwesomeIcon
-                icon={faQuestionCircle}
+                onClick={handleGotocart}
+                icon={faCartShopping}
                 className="text-2xl mx-2 cursor-pointer"
               />
+              <div class="badge badge-sm ">{carts?.length}</div>
               <FontAwesomeIcon
                 icon={faBell}
-                className="text-2xl mx-2 cursor-pointer"
+                className="text-2xl mx-2 cursor-pointer mb-3"
               />
             </div>
             {user ? (
