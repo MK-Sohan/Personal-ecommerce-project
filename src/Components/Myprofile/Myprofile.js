@@ -9,7 +9,12 @@ const Myprofile = () => {
 
   const [profile, setProfile] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/updateprofile/${user?.email}`)
+    fetch(`http://localhost:5000/updateprofile/${user?.email}`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
       .then((res) => res.json())
       .then((data) => setProfile(data));
   }, []);

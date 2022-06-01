@@ -16,7 +16,12 @@ const Carts = () => {
     refetch,
     isLoading,
   } = useQuery("pcart", () =>
-    fetch(`http://localhost:5000/carts/${user.email}`).then((res) => res.json())
+    fetch(`http://localhost:5000/carts/${user.email}`, {
+      method: "GET",
+      // headers: {
+      //   authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+      // },
+    }).then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;
