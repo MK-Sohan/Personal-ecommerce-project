@@ -11,6 +11,7 @@ const useToken = (user) => {
         body: JSON.stringify(currentUser),
         headers: {
           "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
         },
       })
         .then((response) => response.json())

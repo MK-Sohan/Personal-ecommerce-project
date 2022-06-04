@@ -18,15 +18,15 @@ const Carts = () => {
   } = useQuery("pcart", () =>
     fetch(`http://localhost:5000/carts/${user.email}`, {
       method: "GET",
-      // headers: {
-      //   authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
-      // },
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+      },
     }).then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;
   }
-
+  console.log(carts);
   return (
     <div>
       {/* <div className="ml-64 mb-9 ">

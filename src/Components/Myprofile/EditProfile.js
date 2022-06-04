@@ -28,7 +28,7 @@ const EditProfile = () => {
       body: JSON.stringify(info),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+        // authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
       },
     })
       .then((res) => res.json())

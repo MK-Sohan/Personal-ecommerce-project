@@ -35,12 +35,14 @@ const BestsellingProducts = () => {
       body: JSON.stringify(cartProduct),
       headers: {
         "Content-type": "application/json ",
-        // authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+        authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
       },
     })
       .then((response) => response.json())
       .then((json) => {
-        toast("Item aded to the cart");
+        user
+          ? toast("Item aded to the cart")
+          : toast.error("Please Log in First");
       });
   };
 

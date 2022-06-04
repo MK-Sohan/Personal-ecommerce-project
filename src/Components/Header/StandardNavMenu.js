@@ -29,7 +29,12 @@ function StandardNavMenu() {
 
   useEffect(() => {
     const email = user?.email;
-    fetch(`http://localhost:5000/carts/${email}`)
+    fetch(`http://localhost:5000/carts/${email}`, {
+      method: "GET",
+      // headers: {
+      //   authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+      // },
+    })
       .then((res) => res.json())
       .then((data) => setCarts(data));
   }, [carts]);

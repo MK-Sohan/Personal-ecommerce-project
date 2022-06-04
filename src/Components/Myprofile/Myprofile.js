@@ -8,12 +8,7 @@ const Myprofile = () => {
 
   const [profile, setProfile] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/updateprofile/${user?.email}`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
-      },
-    })
+    fetch(`http://localhost:5000/updateprofile/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setProfile(data));
   }, []);
@@ -23,7 +18,7 @@ const Myprofile = () => {
       <div class="card w-96 bg-base-100 shadow-xl">
         <Link to="/dashboard/editprofile">
           {" "}
-          <button class="btn btn-primary btn-xs  ml-1 bg-slate-800 text-whitebtn-xs">
+          <button class="btn btn-primary btn-xs  ml-1  bg-slate-800 text-whitebtn-xs">
             Edit Profile
           </button>
         </Link>

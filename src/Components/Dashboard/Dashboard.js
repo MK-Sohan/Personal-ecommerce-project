@@ -1,13 +1,22 @@
 import {
+  faBook,
   faPersonRifle,
   faUser,
+  faUsers,
   faUsersViewfinder,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Outlet } from "react-router-dom";
+import auth from "../../firebase.init";
+import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
+  const [user] = useAuthState(auth);
+  const [admin, setAdmin] = useAdmin(user);
+  console.log(admin);
+
   return (
     <div class="drawer drawer-mobile bg-gradient-to-tl from-green-400 to-indigo-900  ">
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle " />
@@ -48,13 +57,24 @@ const Dashboard = () => {
                 <FontAwesomeIcon icon={faUser}></FontAwesomeIcon> My Profile
               </Link>
             </li>
-            <li className="text-black ">
-              <Link to="/dashboard/review">
-                {" "}
-                <FontAwesomeIcon icon={faUsersViewfinder}></FontAwesomeIcon> My
-                Reviews
-              </Link>
-            </li>
+            {!admin && (
+              <li className="text-black ">
+                <Link to="/dashboard/review">
+                  {" "}
+                  <FontAwesomeIcon icon={faBook}></FontAwesomeIcon> My Reviews
+                </Link>
+              </li>
+            )}
+            {admin && (
+              <li className="text-black ">
+                {admin && (
+                  <Link to="/dashboard/allusers">
+                    {" "}
+                    <FontAwesomeIcon icon={faUsers}></FontAwesomeIcon> All Users
+                  </Link>
+                )}
+              </li>
+            )}
             {/* <li className="text-white">
               <Link to="/dashboard/addreview">Add A Review</Link>
             </li>

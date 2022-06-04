@@ -36,6 +36,7 @@ const ProductDetail = () => {
       body: JSON.stringify(cartProduct),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
       },
     })
       .then((response) => response.json())
