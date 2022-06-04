@@ -16,17 +16,18 @@ const EditProfile = () => {
     reset,
   } = useForm();
   const onSubmit = async (data) => {
+    const email = user?.email;
     const info = {
       qualification: data.qualification,
       city: data.city,
       phone: data.phone,
-      email: user?.email,
+      email: email,
     };
-
-    fetch(`http://localhost:5000/profile/:${user?.email}`, {
+    fetch(`http://localhost:5000/profile/:${email}`, {
       method: "PUT",
       body: JSON.stringify(info),
       headers: {
+        "Content-type": "application/json; charset=UTF-8",
         authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
       },
     })
@@ -35,7 +36,6 @@ const EditProfile = () => {
         reset();
         toast("Your Profile Updted");
         navigate("/dashboard");
-        console.log(data);
       });
   };
   return (

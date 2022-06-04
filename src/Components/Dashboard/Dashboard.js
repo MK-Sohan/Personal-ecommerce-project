@@ -1,3 +1,9 @@
+import {
+  faPersonRifle,
+  faUser,
+  faUsersViewfinder,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
@@ -33,15 +39,21 @@ const Dashboard = () => {
       </div>
       <div class="drawer-side ">
         <label for="my-drawer-2" class="drawer-overlay "></label>
-        <ul class="menu p-4 overflow-y-auto w-80 bg-slate-500 text-base-content">
+        <ul class="menu p-4 overflow-y-auto w-80 bg-base-200 text-base-content">
           {/* <!-- Sidebar content here --> */}
 
           <>
-            <li className="text-white ">
-              <Link to="/dashboard">My Profile</Link>
+            <li className="text-black ">
+              <Link to="/dashboard">
+                <FontAwesomeIcon icon={faUser}></FontAwesomeIcon> My Profile
+              </Link>
             </li>
-            <li className="text-white ">
-              <Link to="/dashboard/review">My Reviews</Link>
+            <li className="text-black ">
+              <Link to="/dashboard/review">
+                {" "}
+                <FontAwesomeIcon icon={faUsersViewfinder}></FontAwesomeIcon> My
+                Reviews
+              </Link>
             </li>
             {/* <li className="text-white">
               <Link to="/dashboard/addreview">Add A Review</Link>

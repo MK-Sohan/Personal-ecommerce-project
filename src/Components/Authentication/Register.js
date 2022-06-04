@@ -16,7 +16,6 @@ const Register = () => {
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
 
   const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
-  // console.log(user);
 
   const {
     register,
@@ -28,7 +27,6 @@ const Register = () => {
     const name = data.name;
     const email = data.email;
     const password = data.password;
-    // console.log(email, password, data);
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
 

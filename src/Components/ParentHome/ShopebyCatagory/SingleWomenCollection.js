@@ -12,16 +12,15 @@ const SingleWomenCollection = ({ woman }) => {
   };
   const [user] = useAuthState(auth);
   const handleAddtocart = (p) => {
-    console.log(p);
     const cartProduct = {
       name: p.productname,
       image: p.image,
       price: p.price,
       email: user?.email,
+      quantity: "1",
     };
-    console.log(cartProduct);
-    fetch("http://localhost:5000/cart", {
-      method: "POST",
+    fetch(`http://localhost:5000/cart/${p._id}`, {
+      method: "PUT",
       body: JSON.stringify(cartProduct),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -30,7 +29,6 @@ const SingleWomenCollection = ({ woman }) => {
       .then((response) => response.json())
       .then((json) => {
         toast("Item aded to the cart");
-        console.log(json);
       });
   };
   return (

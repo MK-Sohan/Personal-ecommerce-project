@@ -28,7 +28,8 @@ function StandardNavMenu() {
   const [carts, setCarts] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/carts/${user?.email}`)
+    const email = user?.email;
+    fetch(`http://localhost:5000/carts/${email}`)
       .then((res) => res.json())
       .then((data) => setCarts(data));
   }, [carts]);
@@ -196,7 +197,7 @@ function StandardNavMenu() {
                 icon={faCartShopping}
                 className="text-2xl mx-2 cursor-pointer"
               />
-              <div class="badge badge-sm ">{carts?.length}</div>
+              <div class="badge badge-sm ">{carts.length}</div>
               <FontAwesomeIcon
                 icon={faBell}
                 className="text-2xl mx-2 cursor-pointer mb-3"

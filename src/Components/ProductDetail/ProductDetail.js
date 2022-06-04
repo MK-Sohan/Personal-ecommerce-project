@@ -9,14 +9,7 @@ import Loading from "../Share/Loading";
 
 const ProductDetail = () => {
   const { productid } = useParams();
-  // const [detail, setDetail] = useState({});
-  // useEffect(() => {
-  //   fetch(`http://localhost:5000/productdetail/${productid}`)
-  //     .then((res) => res.json())
-  //     .then((data) => setDetail(data));
-  // }, []);
   const [detail, setDetail] = useProductDetails();
-
   const [rotate, setRotate] = useState(false);
   const [count, setCount] = useState(0);
   const [user] = useAuthState(auth);
@@ -29,17 +22,17 @@ const ProductDetail = () => {
       setCount((prev) => prev - 1);
     }
   };
+
   const handleAddtocartt = (p) => {
-    console.log(p);
     const cartProduct = {
       name: p.productname,
       image: p.image,
-      price: p.price,
+      price: p.price * count,
       email: user?.email,
+      quantity: count,
     };
-    console.log(cartProduct);
-    fetch("http://localhost:5000/cart", {
-      method: "POST",
+    fetch(`http://localhost:5000/cart/${p._id}`, {
+      method: "PUT",
       body: JSON.stringify(cartProduct),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -48,12 +41,10 @@ const ProductDetail = () => {
       .then((response) => response.json())
       .then((json) => {
         toast("Item aded to the cart");
-        console.log(json);
       });
   };
-  console.log(detail);
   return (
-    <div className="h-full lg:mb-96">
+    <div className="h-full lg:mb-96 ">
       <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">
         <div className="flex justify-center items-center lg:flex-row flex-col gap-8">
           {/* <!-- Description Div --> */}
@@ -143,7 +134,7 @@ const ProductDetail = () => {
               distribution of letters.
             </p>
             <p className=" font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 ">
-              $ {detail.price}
+              $ {count > 0 ? detail.price * count : detail.price}
             </p>
 
             <div className="lg:mt-11 mt-10">
@@ -164,7 +155,6 @@ const ProductDetail = () => {
                     className="border border-gray-300 h-full text-center w-14 pb-1"
                     type="text"
                     value={count}
-                    onChange={(e) => e.target.value}
                   />
                   <span
                     onClick={addCount}

@@ -5,14 +5,13 @@ import auth from "../../firebase.init";
 import image from "./imgbin_computer-icons-user-profile-user-account-png.png";
 const Myprofile = () => {
   const [user] = useAuthState(auth);
-  console.log(user);
 
   const [profile, setProfile] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:5000/updateprofile/${user?.email}`, {
       method: "GET",
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
+        authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
       },
     })
       .then((res) => res.json())

@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 
 const useProductDetails = () => {
   const { productid } = useParams();
-  console.log(productid);
   const [detail, setDetail] = useState({});
   useEffect(() => {
     fetch(`http://localhost:5000/productdetail/${productid}`)

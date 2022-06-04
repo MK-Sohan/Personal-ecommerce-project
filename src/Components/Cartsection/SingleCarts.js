@@ -4,7 +4,6 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { faGratipay } from "@fortawesome/free-brands-svg-icons";
 
 const SingleCarts = ({ cart, refetch, setOrderdelete }) => {
-  // console.log(cart);
   const [count, setCount] = useState(0);
 
   const addCount = () => {
@@ -22,7 +21,7 @@ const SingleCarts = ({ cart, refetch, setOrderdelete }) => {
         <td>
           <div class="flex items-center space-x-3 ">
             <div class="avatar">
-              <div class="mask mask-squircle w-32 h-32">
+              <div class="w-44 rounded">
                 <img src={cart.image} alt="Avatar " />
               </div>
             </div>
@@ -31,17 +30,13 @@ const SingleCarts = ({ cart, refetch, setOrderdelete }) => {
         <td>
           {cart.name}
           <br />
-          {/* <span class="badge badge-ghost badge-sm">
-          Desktop Support Technician
-        </span> */}
         </td>
-
-        <td>
+        <td> {cart.quantity}</td>
+        {/* <td>
           {" "}
           <div className="flex flex-row justify-between">
-            {/* <p className=" font-medium text-base leading-4 text-gray-600">
-              Select quantity
-            </p> */}
+           
+
             <div className="flex">
               <span
                 onClick={minusCount}
@@ -65,7 +60,8 @@ const SingleCarts = ({ cart, refetch, setOrderdelete }) => {
               </span>
             </div>
           </div>
-        </td>
+        </td> */}
+
         <td>$ {cart.price}</td>
 
         <th>

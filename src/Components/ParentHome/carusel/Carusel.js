@@ -25,6 +25,7 @@ export default function Carusel() {
         pagination={{
           clickable: true,
         }}
+        rewind={true}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"

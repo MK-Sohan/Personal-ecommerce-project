@@ -9,18 +9,18 @@ const ProductsContainer = ({ product }) => {
   const handleProductDetail = (id) => {
     navigate("/aboutproduct/" + id);
   };
+
   const [user] = useAuthState(auth);
   const handleAddtocart = (p) => {
-    console.log(p);
     const cartProduct = {
       name: p.productname,
       image: p.image,
       price: p.price,
       email: user?.email,
+      quantity: "1",
     };
-    console.log(cartProduct);
-    fetch("http://localhost:5000/cart", {
-      method: "POST",
+    fetch(`http://localhost:5000/cart/${p._id}`, {
+      method: "PUT",
       body: JSON.stringify(cartProduct),
       headers: {
         "Content-type": "application/json ",
@@ -30,7 +30,6 @@ const ProductsContainer = ({ product }) => {
       .then((response) => response.json())
       .then((json) => {
         toast("Item aded to the cart");
-        console.log(json);
       });
   };
   return (
@@ -50,6 +49,12 @@ const ProductsContainer = ({ product }) => {
             >
               Add to bag
             </button>
+            {/* <button
+              onClick={() => totalprice(product)}
+              className=" font-medium text-base leading-4 text-gray-800 bg-white py-3 w-full hover:bg-green-600 hover:text-white"
+            >
+              Add new
+            </button> */}
             <button
               onClick={() => handleProductDetail(product._id)}
               className=" bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-white hover:bg-orange-400  hover:border-0"
