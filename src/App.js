@@ -24,6 +24,7 @@ import Myprofile from "./Components/Myprofile/Myprofile";
 import Myreview from "./Components/Dashboard/Myreview";
 import EditProfile from "./Components/Myprofile/EditProfile";
 import Allusers from "./Components/Dashboard/Allusers/Allusers";
+import Addproduct from "./Components/Dashboard/AddProduct/Addproduct";
 function App() {
   return (
     <div className="bg-white  ">
@@ -97,6 +98,7 @@ function App() {
           <Route index element={<Myprofile></Myprofile>}></Route>
           <Route path="review" element={<Myreview></Myreview>}></Route>
           <Route path="allusers" element={<Allusers></Allusers>}></Route>
+          <Route path="addproduct" element={<Addproduct></Addproduct>}></Route>
           <Route
             path="editprofile"
             element={<EditProfile></EditProfile>}
