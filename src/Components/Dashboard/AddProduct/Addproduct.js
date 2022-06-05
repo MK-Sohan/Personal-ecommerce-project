@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const Addproduct = () => {
   const {
@@ -9,7 +10,25 @@ const Addproduct = () => {
     reset,
   } = useForm();
   const onSubmit = async (data) => {
-    console.log(data.name);
+    const productinfo = {
+      productname: data.name,
+      price: data.price,
+      catagory: data.catagory,
+      description: data.description,
+      image: data.image,
+    };
+    fetch("http://localhost:5000/addproduct", {
+      method: "POST",
+      body: JSON.stringify(productinfo),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        toast("Product Added Successfully");
+        // console.log(json);
+      });
     reset();
   };
 
@@ -118,6 +137,31 @@ const Addproduct = () => {
                 {errors.description?.type === "required" && (
                   <span className="label-text-alt text-red-500">
                     {errors.description.message}
+                  </span>
+                )}
+              </label>
+            </div>
+            <div>
+              <lable className="text-sm font-medium leading-none text-gray-800">
+                Product catagory <br />
+                mans/shoes/womans/gadgets
+              </lable>
+              <input
+                aria-label="enter email adress"
+                role="input"
+                type="text"
+                className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+                {...register("catagory", {
+                  required: {
+                    value: true,
+                    message: "Catagory is Required",
+                  },
+                })}
+              />
+              <label className="label">
+                {errors.catagory?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.catagory.message}
                   </span>
                 )}
               </label>

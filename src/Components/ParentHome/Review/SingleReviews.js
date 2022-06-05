@@ -2,7 +2,7 @@ import React from "react";
 
 const SingleReviews = ({ review }) => {
   return (
-    <div>
+    <div data-aos="fade-up-left">
       <div>
         <div className="group w-full bg-white relative flex flex-col items-center hover:bg-indigo-700 cursor-pointer shadow-md md:p-12 p-6">
           <div className="text-gray-600 group-hover:text-white flex flex-col items-center">

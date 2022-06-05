@@ -1,6 +1,7 @@
 import { faProductHunt } from "@fortawesome/free-brands-svg-icons";
 import {
   faBook,
+  faEdit,
   faPersonRifle,
   faUser,
   faUsers,
@@ -19,7 +20,7 @@ const Dashboard = () => {
   console.log(admin);
 
   return (
-    <div class="drawer drawer-mobile bg-gradient-to-tl from-green-400 to-indigo-900  ">
+    <div class="drawer drawer-mobile bg-gradient-to-tl from-green-400 to-indigo-900   ">
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle " />
 
       <div class="  drawer-content flex flex-col items-center pagecontainer  ">
@@ -42,13 +43,13 @@ const Dashboard = () => {
           </label>
         </div>
         {/* <!-- Page content here --> */}
-        <h1 className="text-4xl text-center mb-16 mt-10 font-bold text-white">
+        <h1 className="text-4xl text-center mb-16 mt-10 font-bold text-white ">
           Welcome to Dashboard{" "}
           <span className="text-red-300">{user?.displayName}</span>
         </h1>
         <Outlet></Outlet>
       </div>
-      <div class="drawer-side ">
+      <div class="drawer-side shadow-2xl shadow-slate-900">
         <label for="my-drawer-2" class="drawer-overlay "></label>
         <ul class="menu p-4 overflow-y-auto w-80 bg-base-200 text-base-content ">
           {/* <!-- Sidebar content here --> */}
@@ -86,6 +87,15 @@ const Dashboard = () => {
                         icon={faProductHunt}
                       ></FontAwesomeIcon>{" "}
                       Add Product
+                    </Link>
+                  )}
+                </li>
+                <li className="text-black hover:bg-green-400 border-2  mt-3 hover:text-white ">
+                  {admin && (
+                    <Link to="/dashboard/manageproduct">
+                      {" "}
+                      <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon> Manage
+                      Products
                     </Link>
                   )}
                 </li>

@@ -3,7 +3,12 @@ import React, { useEffect, useState } from "react";
 const Allreview = () => {
   const [allReviews, setAllreviews] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("http://localhost:5000/reviews", {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setAllreviews(data));
   }, []);
