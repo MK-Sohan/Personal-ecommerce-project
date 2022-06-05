@@ -1,6 +1,7 @@
 import { faWarning } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { toast } from "react-toastify";
 
 const DeleteuserModal = ({ refetch, deleteuser }) => {
   const handleDeleteuser = (email) => {
@@ -10,6 +11,7 @@ const DeleteuserModal = ({ refetch, deleteuser }) => {
       .then((res) => res.json())
       .then((data) => {
         refetch();
+        toast.error("User Removed");
         console.log(data);
       });
   };

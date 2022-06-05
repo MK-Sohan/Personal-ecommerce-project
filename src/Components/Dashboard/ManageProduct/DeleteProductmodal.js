@@ -1,6 +1,7 @@
 import { faTrash, faWarning } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { toast } from "react-toastify";
 
 const DeleteProductmodal = ({ deleteproduct, refetch }) => {
   const handleDeleteproduct = (id) => {
@@ -8,7 +9,10 @@ const DeleteProductmodal = ({ deleteproduct, refetch }) => {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then((data) => refetch());
+      .then((data) => {
+        refetch();
+        toast.error("Product deleted");
+      });
   };
 
   return (

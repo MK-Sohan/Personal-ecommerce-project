@@ -15,13 +15,11 @@ import {
 import Avatar from "../Avatar/Avatar";
 import Button from "../Button/Button";
 import { Link, useNavigate } from "react-router-dom";
-import { faProductHunt } from "@fortawesome/free-brands-svg-icons";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
-import { useQuery } from "react-query";
-import Loading from "../Share/Loading";
-
+import "./nav.css";
+import logo from "./3536452.png";
 function StandardNavMenu() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [user, loading, error] = useAuthState(auth);
@@ -56,11 +54,8 @@ function StandardNavMenu() {
 
   return (
     <div className="flex items-center sticky top-0 h-20 px-6 justify-between  bg-[#ffc532] text-white  z-50">
-      <div className="h-8">
-        <img
-          src="https://gustui.s3.amazonaws.com/Gust+Logo+White.png"
-          className="h-full"
-        />
+      <div className="h-60">
+        <img src={logo} className="h-60 w-60" />
       </div>
       <div className="flex-1 justify-center items-center hidden lg:flex">
         <Link
@@ -180,12 +175,22 @@ function StandardNavMenu() {
               Dashboard
             </Link>
             <div className="flex">
-              <Button
-                onClick={handlelogin}
-                className=" text-gray-200 bg-transparent bottom-1 border-gray-200 mt-6 hover:bg-white hover:text-black"
-                text="Login"
-                size="sm"
-              />{" "}
+              {user ? (
+                <Button
+                  onClick={logout}
+                  className=" text-gray-200 bg-red-500 border-0 bottom-1
+                    mt-6 hover:bg-white hover:text-black"
+                  text="Sign Out"
+                  size="sm"
+                />
+              ) : (
+                <Button
+                  onClick={handlelogin}
+                  className=" text-gray-200 bg-transparent bottom-1 border-gray-200 mt-6 hover:bg-white hover:text-black"
+                  text="Login"
+                  size="sm"
+                />
+              )}{" "}
               <span className="px-4 mt-5 text-3xl text-white caret-black ">
                 |
               </span>

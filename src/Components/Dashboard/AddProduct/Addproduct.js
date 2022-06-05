@@ -33,7 +33,7 @@ const Addproduct = () => {
   };
 
   return (
-    <div className="h-full  w-full  px-4">
+    <div className="mb-10 h-full  w-full  px-4">
       <div className="flex flex-col items-center justify-center">
         <div className="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
           <p
@@ -95,7 +95,8 @@ const Addproduct = () => {
             </div>
             <div>
               <lable className="text-sm font-medium leading-none text-gray-800">
-                Product Image
+                Product Image <br />
+                <span className="text-green-600"> please add a image link</span>
               </lable>
               <input
                 aria-label="enter email adress"
@@ -144,7 +145,10 @@ const Addproduct = () => {
             <div>
               <lable className="text-sm font-medium leading-none text-gray-800">
                 Product catagory <br />
-                mans/shoes/womans/gadgets
+                <span className="text-green-600">
+                  {" "}
+                  mans/shoes/womans/gadgets
+                </span>
               </lable>
               <input
                 aria-label="enter email adress"

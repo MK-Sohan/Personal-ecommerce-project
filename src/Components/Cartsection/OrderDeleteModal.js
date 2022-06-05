@@ -1,6 +1,7 @@
 import React from "react";
 import { faTrashCan, faWarning } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { toast } from "react-toastify";
 
 const OrderDeleteModal = ({ orderdelete, refetch }) => {
   const HandleDelete = (id) => {
@@ -8,7 +9,10 @@ const OrderDeleteModal = ({ orderdelete, refetch }) => {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then((data) => refetch());
+      .then((data) => {
+        refetch();
+        toast.warning("Item Deleted");
+      });
   };
 
   return (
