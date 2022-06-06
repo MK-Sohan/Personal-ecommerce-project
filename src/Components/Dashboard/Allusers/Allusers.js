@@ -12,7 +12,7 @@ const Allusers = () => {
     isLoading,
     refetch,
   } = useQuery("user", () =>
-    fetch("http://localhost:5000/alluser", {
+    fetch("https://frozen-taiga-15313.herokuapp.com/alluser", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accesstoken")}`,

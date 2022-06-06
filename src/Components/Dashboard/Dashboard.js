@@ -17,7 +17,7 @@ import useAdmin from "../Hooks/useAdmin";
 const Dashboard = () => {
   const [user] = useAuthState(auth);
   const [admin, setAdmin] = useAdmin(user);
-  console.log(admin);
+  // console.log(admin);
 
   return (
     <div class="drawer drawer-mobile bg-gradient-to-tl from-green-400 to-indigo-900   ">

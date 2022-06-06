@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 const OrderDeleteModal = ({ orderdelete, refetch }) => {
   const HandleDelete = (id) => {
-    fetch(`http://localhost:5000/cart/${id}`, {
+    fetch(`https://frozen-taiga-15313.herokuapp.com/cart/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

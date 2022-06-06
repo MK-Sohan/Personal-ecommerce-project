@@ -12,7 +12,7 @@ const BestsellingProducts = () => {
     navigate("/products");
   };
   useEffect(() => {
-    fetch("http://localhost:5000/products", {
+    fetch("https://frozen-taiga-15313.herokuapp.com/products", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
       },
@@ -30,7 +30,7 @@ const BestsellingProducts = () => {
       email: user?.email,
       quantity: "1",
     };
-    fetch(`http://localhost:5000/cart/${p._id}`, {
+    fetch(`https://frozen-taiga-15313.herokuapp.com/cart/${p._id}`, {
       method: "PUT",
       body: JSON.stringify(cartProduct),
       headers: {

@@ -5,7 +5,9 @@ const WomensCollection = () => {
   const [womanscollection, setWomanscollection] = useState([]);
   const catagory = "womans";
   useState(() => {
-    fetch(`http://localhost:5000/womans/?catagory=${catagory}`)
+    fetch(
+      `https://frozen-taiga-15313.herokuapp.com/womans/?catagory=${catagory}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setWomanscollection(data);

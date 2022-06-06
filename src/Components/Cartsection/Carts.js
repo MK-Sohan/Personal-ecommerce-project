@@ -16,7 +16,7 @@ const Carts = () => {
     refetch,
     isLoading,
   } = useQuery("pcart", () =>
-    fetch(`http://localhost:5000/carts/${user.email}`, {
+    fetch(`https://frozen-taiga-15313.herokuapp.com/carts/${user.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accesstoken")}`,

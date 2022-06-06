@@ -7,7 +7,7 @@ const MansCollection = () => {
   const [mensCollection, setMensCollection] = useState([]);
   const catagory = "mans";
   useEffect(() => {
-    fetch(`http://localhost:5000/mans/?catagory=${catagory}`)
+    fetch(`https://frozen-taiga-15313.herokuapp.com/mans/?catagory=${catagory}`)
       .then((res) => res.json())
       .then((data) => setMensCollection(data));
   }, []);

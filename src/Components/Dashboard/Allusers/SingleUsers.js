@@ -6,7 +6,7 @@ import auth from "../../../firebase.init";
 const SingleUsers = ({ user, index, refetch, setDeleteuser }) => {
   const { email, role } = user;
   const makeAdmin = () => {
-    fetch(`http://localhost:5000/user/admin/${email}`, {
+    fetch(`https://frozen-taiga-15313.herokuapp.com/user/admin/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -5,12 +5,15 @@ const Allshoes = () => {
   const [shoes, setShoes] = useState([]);
   const catagory = "shoes";
   useEffect(() => {
-    fetch(`http://localhost:5000/shoes/?catagory=${catagory}`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
-      },
-    })
+    fetch(
+      `https://frozen-taiga-15313.herokuapp.com/shoes/?catagory=${catagory}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => setShoes(data));
   }, []);

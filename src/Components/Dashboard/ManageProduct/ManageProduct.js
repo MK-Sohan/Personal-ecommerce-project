@@ -16,7 +16,7 @@ const ManageProduct = () => {
     isLoading,
     refetch,
   } = useQuery("manage", () =>
-    fetch("http://localhost:5000/products", {
+    fetch("https://frozen-taiga-15313.herokuapp.com/products", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accesstoken")}`,

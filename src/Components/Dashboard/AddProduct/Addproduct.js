@@ -17,7 +17,7 @@ const Addproduct = () => {
       description: data.description,
       image: data.image,
     };
-    fetch("http://localhost:5000/addproduct", {
+    fetch("https://frozen-taiga-15313.herokuapp.com/addproduct", {
       method: "POST",
       body: JSON.stringify(productinfo),
       headers: {

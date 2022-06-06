@@ -8,7 +8,9 @@ const Allgadgets = () => {
   const [gadgets, setGadgets] = useState([]);
   const catagory = "gadgets";
   useEffect(() => {
-    fetch(`http://localhost:5000/gadget/?catagory=${catagory}`)
+    fetch(
+      `https://frozen-taiga-15313.herokuapp.com/gadget/?catagory=${catagory}`
+    )
       .then((res) => res.json())
       .then((data) => setGadgets(data));
   }, []);

@@ -7,7 +7,7 @@ const Products = () => {
 
   const [sesrch, setSesrch] = useState("");
   useEffect(() => {
-    fetch("http://localhost:5000/products", {
+    fetch("https://frozen-taiga-15313.herokuapp.com/products", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
       },

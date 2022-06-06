@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 const DeleteuserModal = ({ refetch, deleteuser }) => {
   const handleDeleteuser = (email) => {
-    fetch(`http://localhost:5000/userdelete/${email}`, {
+    fetch(`https://frozen-taiga-15313.herokuapp.com/userdelete/${email}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

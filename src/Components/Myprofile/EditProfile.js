@@ -17,22 +17,25 @@ const EditProfile = () => {
   } = useForm();
   const onSubmit = async (data) => {
     const email = user?.email;
+    console.log(email);
+    console.log(data.city, data.phone);
     const info = {
       qualification: data.qualification,
       city: data.city,
       phone: data.phone,
       email: email,
     };
-    fetch(`http://localhost:5000/profile/:${email}`, {
+    fetch(`https://frozen-taiga-15313.herokuapp.com/profile/${email}`, {
       method: "PUT",
       body: JSON.stringify(info),
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
-        // authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+        "Content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
       },
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         reset();
         toast("Your Profile Updted");
         navigate("/dashboard");
@@ -130,7 +133,7 @@ const EditProfile = () => {
                 aria-label="create my account"
                 className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full"
               >
-                Create my account
+                Update
               </button>
             </div>
           </form>

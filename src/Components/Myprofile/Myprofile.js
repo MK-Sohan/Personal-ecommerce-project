@@ -8,9 +8,17 @@ const Myprofile = () => {
 
   const [profile, setProfile] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/updateprofile/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setProfile(data));
+    const email = user?.email;
+    if (email) {
+      fetch(`https://frozen-taiga-15313.herokuapp.com/updateprofile/${email}`, {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => setProfile(data));
+    }
   }, []);
 
   return (

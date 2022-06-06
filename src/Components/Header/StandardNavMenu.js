@@ -27,7 +27,7 @@ function StandardNavMenu() {
 
   useEffect(() => {
     const email = user?.email;
-    fetch(`http://localhost:5000/carts/${email}`, {
+    fetch(`https://frozen-taiga-15313.herokuapp.com/carts/${email}`, {
       method: "GET",
       // headers: {
       //   authorization: `Bearer ${localStorage.getItem("accesstoken")}`,

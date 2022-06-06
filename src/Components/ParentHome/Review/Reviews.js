@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://frozen-taiga-15313.herokuapp.com/reviews", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
